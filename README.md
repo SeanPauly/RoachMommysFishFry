@@ -22,7 +22,7 @@ To play Roach Mommy's Fish Fry, you will need a computer with the following spec
 * Graphics: DirectX 9.0c compatible graphics card
 * Storage: 500 MB available space
 
-#v# Support 
+## Support 
 If you encounter any issues or have any questions about Roach Mommy's Fish Fry, please don't hesitate to contact our support team. You can reach us through the official website or by emailing us at 
 <span style="text-decoration: underline">support@roachmommysfishfry.com.</span>
 
