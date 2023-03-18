@@ -201,8 +201,8 @@ fish_frame_14 = pygame.transform.scale(fish_frame_14, (fish_width, fish_height))
 fish_frame_15 = pygame.image.load('Images\Fish_Frames\Frame_15_delay-0.1s.gif')
 fish_frame_15 = pygame.transform.scale(fish_frame_15, (fish_width, fish_height))
 
-guess_width = 250
-guess_height = 150
+guess_width = SCREEN_WIDTH-10
+guess_height = 250
 
 # Set up menu screen
 play_button_img = pygame.image.load("Images\ButtonFrames\PlayButton\playbuttonframe_0.png")
@@ -213,7 +213,6 @@ quit_button_img = pygame.image.load("Images\ButtonFrames\QuitButton\quitbuttonfr
 quit_button_img = pygame.transform.scale(quit_button_img, (button_width, button_height))
 gu_image = pygame.image.load('Images/Guess-O-Tron.png')
 gu_image = pygame.transform.scale(gu_image, (guess_width, guess_height))
-guess_rect = gu_image.get_rect(center=(SCREEN_WIDTH * .185, 150))
 
 button_y = 125
 menu_screen_play_button_rect = play_button_img.get_rect(center=(SCREEN_WIDTH * .925, button_y))
@@ -295,7 +294,7 @@ def play_game():
             # Display the word and the number of attempts
             word_text = FONT.render(" ".join(hidden_word), True, WHITE)
             attempts_text = FONT.render("Attempts: " + str(attempts), True, WHITE)
-            screen.blit(gu_image, guess_rect)
+            screen.blit(gu_image, [0, 350])
             screen.blit(word_text, [115, 145]) 
             screen.blit(attempts_text, [100, 115])
             screen.blit(boil_frame_images[boil_frame_index], (150, 185))
