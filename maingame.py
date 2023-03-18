@@ -93,9 +93,113 @@ wi_image = pygame.transform.scale(wi_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
 splash_screen_text = font.render("Welcome to My Game", True, WHITE)
 splash_screen_text_rect = splash_screen_text.get_rect(center=(SCREEN_WIDTH//2, SCREEN_HEIGHT//2))
 
+rm_width = 200
+rm_height = 125
+
+boil_width = 400
+boil_height = 200
+
+fish_width = 90
+fish_height = 500
 
 button_width = 150
 button_height = 50
+
+rm_frame_0 = pygame.image.load('Images\RoachMommy_Frames\Frame_0_delay-0.1s.png')
+rm_frame_0 = pygame.transform.scale(rm_frame_0, (rm_width, rm_height))
+
+rm_frame_1 = pygame.image.load('Images\RoachMommy_Frames\Frame_1_delay-0.1s.png')
+rm_frame_1 = pygame.transform.scale(rm_frame_1, (rm_width, rm_height))
+
+rm_frame_2 = pygame.image.load('Images\RoachMommy_Frames\Frame_2_delay-0.1s.png')
+rm_frame_2 = pygame.transform.scale(rm_frame_2, (rm_width, rm_height))
+
+rm_frame_3 = pygame.image.load('Images\RoachMommy_Frames\Frame_3_delay-0.1s.png')
+rm_frame_3 = pygame.transform.scale(rm_frame_3, (rm_width, rm_height))
+
+rm_frame_4 = pygame.image.load('Images\RoachMommy_Frames\Frame_4_delay-0.1s.png')
+rm_frame_4 = pygame.transform.scale(rm_frame_4, (rm_width, rm_height))
+
+rm_frame_5 = pygame.image.load('Images\RoachMommy_Frames\Frame_5_delay-0.1s.png')
+rm_frame_5 = pygame.transform.scale(rm_frame_5, (rm_width, rm_height))
+
+rm_frame_6 = pygame.image.load('Images\RoachMommy_Frames\Frame_6_delay-0.1s.png')
+rm_frame_6 = pygame.transform.scale(rm_frame_6, (rm_width, rm_height))
+
+rm_frame_7 = pygame.image.load('Images\RoachMommy_Frames\Frame_7_delay-0.1s.png')
+rm_frame_7 = pygame.transform.scale(rm_frame_7, (rm_width, rm_height))
+
+boil_frame_0 = pygame.image.load('Images\Boil_Frames\Frame_0_delay-0.1s.png')
+boil_frame_0 = pygame.transform.scale(boil_frame_0, (boil_width, boil_height))
+
+boil_frame_1 = pygame.image.load('Images\Boil_Frames\Frame_1_delay-0.1s.png')
+boil_frame_1 = pygame.transform.scale(boil_frame_1, (boil_width, boil_height))
+
+boil_frame_2 = pygame.image.load('Images\Boil_Frames\Frame_2_delay-0.1s.png')
+boil_frame_2 = pygame.transform.scale(boil_frame_2, (boil_width, boil_height))
+
+boil_frame_3 = pygame.image.load('Images\Boil_Frames\Frame_3_delay-0.1s.png') 
+boil_frame_3 = pygame.transform.scale(boil_frame_3, (boil_width, boil_height))
+
+boil_frame_4 = pygame.image.load('Images\Boil_Frames\Frame_4_delay-0.1s.png')
+boil_frame_4 = pygame.transform.scale(boil_frame_4, (boil_width, boil_height))
+
+boil_frame_5 = pygame.image.load('Images\Boil_Frames\Frame_5_delay-0.1s.png')
+boil_frame_5 = pygame.transform.scale(boil_frame_5, (boil_width, boil_height))
+
+boil_frame_6 = pygame.image.load('Images\Boil_Frames\Frame_6_delay-0.1s.png')
+boil_frame_6 = pygame.transform.scale(boil_frame_6, (boil_width, boil_height))
+
+boil_frame_7 = pygame.image.load('Images\Boil_Frames\Frame_7_delay-0.1s.png')
+boil_frame_7 = pygame.transform.scale(boil_frame_7, (boil_width, boil_height))
+
+fish_frame_0 = pygame.image.load('Images\Fish_Frames\Frame_0_delay-0.1s.gif')
+fish_frame_0 = pygame.transform.scale(fish_frame_0, (fish_width, fish_height))
+
+fish_frame_1 = pygame.image.load('Images\Fish_Frames\Frame_1_delay-0.1s.gif')
+fish_frame_1 = pygame.transform.scale(fish_frame_1, (fish_width, fish_height))
+
+fish_frame_2 = pygame.image.load('Images\Fish_Frames\Frame_2_delay-0.1s.gif')
+fish_frame_2 = pygame.transform.scale(fish_frame_2, (fish_width, fish_height))
+
+fish_frame_3 = pygame.image.load('Images\Fish_Frames\Frame_3_delay-0.1s.gif')
+fish_frame_3 = pygame.transform.scale(fish_frame_3, (fish_width, fish_height))
+
+fish_frame_4 = pygame.image.load('Images\Fish_Frames\Frame_4_delay-0.1s.gif')
+fish_frame_4 = pygame.transform.scale(fish_frame_4, (fish_width, fish_height))
+
+fish_frame_5 = pygame.image.load('Images\Fish_Frames\Frame_5_delay-0.1s.gif')
+fish_frame_5 = pygame.transform.scale(fish_frame_5, (fish_width, fish_height))
+
+fish_frame_6 = pygame.image.load('Images\Fish_Frames\Frame_6_delay-0.1s.gif')
+fish_frame_6 = pygame.transform.scale(fish_frame_6, (fish_width, fish_height))
+
+fish_frame_7 = pygame.image.load('Images\Fish_Frames\Frame_7_delay-0.1s.gif')
+fish_frame_7 = pygame.transform.scale(fish_frame_7, (fish_width, fish_height))
+
+fish_frame_8 = pygame.image.load('Images\Fish_Frames\Frame_8_delay-0.1s.gif')
+fish_frame_8 = pygame.transform.scale(fish_frame_8, (fish_width, fish_height))
+
+fish_frame_9 = pygame.image.load('Images\Fish_Frames\Frame_9_delay-0.1s.gif')
+fish_frame_9 = pygame.transform.scale(fish_frame_9, (fish_width, fish_height))
+
+fish_frame_10 = pygame.image.load('Images\Fish_Frames\Frame_10_delay-0.1s.gif')
+fish_frame_10 = pygame.transform.scale(fish_frame_10, (fish_width, fish_height))
+
+fish_frame_11 = pygame.image.load('Images\Fish_Frames\Frame_11_delay-0.1s.gif')
+fish_frame_11 = pygame.transform.scale(fish_frame_11, (fish_width, fish_height))
+
+fish_frame_12 = pygame.image.load('Images\Fish_Frames\Frame_12_delay-0.1s.gif')
+fish_frame_12 = pygame.transform.scale(fish_frame_12, (fish_width, fish_height))
+
+fish_frame_13 = pygame.image.load('Images\Fish_Frames\Frame_13_delay-0.1s.gif')
+fish_frame_13 = pygame.transform.scale(fish_frame_13, (fish_width, fish_height))
+
+fish_frame_14 = pygame.image.load('Images\Fish_Frames\Frame_14_delay-0.1s.gif')
+fish_frame_14 = pygame.transform.scale(fish_frame_14, (fish_width, fish_height))
+
+fish_frame_15 = pygame.image.load('Images\Fish_Frames\Frame_15_delay-0.1s.gif')
+fish_frame_15 = pygame.transform.scale(fish_frame_15, (fish_width, fish_height))
 
 guess_width = 250
 guess_height = 150
@@ -115,8 +219,6 @@ button_y = 125
 menu_screen_play_button_rect = play_button_img.get_rect(center=(SCREEN_WIDTH * .925, button_y))
 menu_screen_credits_button_rect = credits_button_img.get_rect(center=(SCREEN_WIDTH * .915, button_y+175))
 menu_screen_quit_button_rect = quit_button_img.get_rect(center=(SCREEN_WIDTH * .915, button_y+350))
-
-
 
 # Set up rules screen
 
@@ -144,6 +246,9 @@ game_screen_text_rect = game_screen_text.get_rect(center=(SCREEN_WIDTH//2, SCREE
 global current_screen
 current_screen = "menu"
 
+clock = pygame.time.Clock()
+
+
 # Define the function to play the game
 def play_game():
     # Initialize game variables
@@ -165,30 +270,22 @@ def play_game():
         # Create a list of underscores to represent the hidden letters
         hidden_word = ["_"] * len(word)
 
-        rm_frame_images = []
-        for i in range(8):
-            filename = f"Images/RoachMommy_Frames/frame_{i}_delay-0.1s-removebg-preview.png"
-            rm_frame_images.append(pygame.image.load(os.path.join(filename)).convert_alpha())
-
-        # Set up the animation variables
+        rm_frame_images = [rm_frame_0, rm_frame_1, rm_frame_2, rm_frame_3, rm_frame_4, rm_frame_5, rm_frame_6, rm_frame_7]
+        # Set the frame rate
+        rm_frame_rate = 10 # frames per second
+        # Set the initial frame index
         rm_frame_index = 0
-        rm_frame_count = len(rm_frame_images)
-        rm_frame_time = 0.1
-        current_time = 0
-
-
 
         # Load the images into a list
-        boil_frame_images = []
-        for i in range(8):
-            filename = f"Images/Boil_Frames/frame_{i}_delay-0.1s-removebg-preview.png"
-            boil_frame_images.append(pygame.image.load(os.path.join(filename)).convert_alpha())
-
+        boil_frame_images = [boil_frame_0, boil_frame_1, boil_frame_2, boil_frame_3, boil_frame_4, boil_frame_5, boil_frame_6, boil_frame_7]
+        boil_frame_rate = 10 # frames per second
         # Set up the animation variables
         boil_frame_index = 0
-        boil_frame_count = len(boil_frame_images)
-        frame_time = 0.01
-        current_time = 0
+        
+        fish_frame_images = [fish_frame_0, fish_frame_1, fish_frame_2, fish_frame_3, fish_frame_4, fish_frame_5, fish_frame_6, fish_frame_7, fish_frame_8, fish_frame_9, fish_frame_10, fish_frame_11, fish_frame_12, fish_frame_13, fish_frame_14, fish_frame_15]
+        fish_frame_rate = 16 # frames per second
+        # Set up the animation variables
+        fish_frame_index = 0
 
         # Loop until the player wins or runs out of attempts
         while attempts > 0 and "_" in hidden_word:
@@ -201,19 +298,16 @@ def play_game():
             screen.blit(gu_image, guess_rect)
             screen.blit(word_text, [115, 145]) 
             screen.blit(attempts_text, [100, 115])
-            screen.blit(boil_frame_images[boil_frame_index], (175, 330))
-            screen.blit(rm_frame_images[rm_frame_index], (300, 115))
-
-            # Wait for the specified frame time
-            current_time += pygame.time.get_ticks() / 1000
-            if current_time >= frame_time:
-                # Switch to the next frame
-                boil_frame_index = (boil_frame_index + 1) % boil_frame_count
-                current_time = 0            
-            elif current_time >= rm_frame_time:
-                # Switch to the next frame
-                rm_frame_index = (rm_frame_index + 1) % rm_frame_count
-                current_time = 0            
+            screen.blit(boil_frame_images[boil_frame_index], (150, 185))
+            screen.blit(rm_frame_images[rm_frame_index], (550, 110))
+            screen.blit(fish_frame_images[fish_frame_index], (300, -350))
+            rm_frame_index = (rm_frame_index + 1) % len(rm_frame_images)
+            boil_frame_index = (boil_frame_index + 1) % len(boil_frame_images)
+            fish_frame_index = (fish_frame_index + 1) % len(fish_frame_images)
+            # Wait for the next frame
+            clock.tick(rm_frame_rate)
+            clock.tick(boil_frame_rate)
+            clock.tick(fish_frame_rate)
 
             # Handle events
             for event in pygame.event.get():
@@ -330,6 +424,3 @@ while not done:
     pygame.display.flip()
 
 pygame.quit()
-
-
-

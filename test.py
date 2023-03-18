@@ -1,50 +1,70 @@
 import pygame
-import os
 
 # Initialize Pygame
 pygame.init()
 
-# Set up the display window
-screen_width = 800
-screen_height = 600
-screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption("Boiling Frames Animation")
+# Set up the window
+screen = pygame.display.set_mode((400, 400))
 
-# Load the images into a list
-frame_images = []
-for i in range(8):
-    filename = f"Boil_Frames/frame_{i}_delay-0.1s-removebg-preview.png"
-    frame_images.append(pygame.image.load(os.path.join(filename)).convert_alpha())
 
-# Set up the animation variables
-frame_index = 0
-frame_count = len(frame_images)
-frame_time = 0.01
-current_time = 0
+rm_width = 200
+rm_height = 125
 
-# Main game loop
+button_width = 150
+button_height = 50
+
+rm_frame_0 = pygame.image.load('Images\RoachMommy_Frames\Frame_0_delay-0.1s.png')
+rm_frame_0 = pygame.transform.scale(rm_frame_0, (rm_width, rm_height))
+
+rm_frame_1 = pygame.image.load('Images\RoachMommy_Frames\Frame_1_delay-0.1s.png')
+rm_frame_1 = pygame.transform.scale(rm_frame_1, (rm_width, rm_height))
+
+rm_frame_2 = pygame.image.load('Images\RoachMommy_Frames\Frame_2_delay-0.1s.png')
+rm_frame_2 = pygame.transform.scale(rm_frame_2, (rm_width, rm_height))
+
+rm_frame_3 = pygame.image.load('Images\RoachMommy_Frames\Frame_3_delay-0.1s.png')
+rm_frame_3 = pygame.transform.scale(rm_frame_3, (rm_width, rm_height))
+
+rm_frame_4 = pygame.image.load('Images\RoachMommy_Frames\Frame_4_delay-0.1s.png')
+rm_frame_4 = pygame.transform.scale(rm_frame_4, (rm_width, rm_height))
+
+rm_frame_5 = pygame.image.load('Images\RoachMommy_Frames\Frame_5_delay-0.1s.png')
+rm_frame_5 = pygame.transform.scale(rm_frame_5, (rm_width, rm_height))
+
+rm_frame_6 = pygame.image.load('Images\RoachMommy_Frames\Frame_6_delay-0.1s.png')
+rm_frame_6 = pygame.transform.scale(rm_frame_6, (rm_width, rm_height))
+
+rm_frame_7 = pygame.image.load('Images\RoachMommy_Frames\Frame_7_delay-0.1s.png')
+rm_frame_7 = pygame.transform.scale(rm_frame_7, (rm_width, rm_height))
+
+
+# Load the frames
+rm_frame_images = [rm_frame_0, rm_frame_1, rm_frame_2, rm_frame_3, rm_frame_4, rm_frame_5, rm_frame_6, rm_frame_6]
+
+# Set the frame rate
+rm_frame_rate = 10 # frames per second
+
+# Set the initial frame index
+rm_frame_index = 0
+
+# Set the clock
+clock = pygame.time.Clock()
+
+# Start the game loop
 running = True
 while running:
     # Handle events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+    # Blit the current frame
+    screen.blit(rm_frame_images[rm_frame_index], (0, 0))
+    # Update the frame index
+    rm_frame_index = (rm_frame_index + 1) % len(rm_frame_images)
+    # Wait for the next frame
+    clock.tick(rm_frame_rate)
+    # Update the display
+    pygame.display.flip()
 
-    # Clear the screen
-    screen.fill((255, 255, 255))
-
-    # Display the current frame
-    screen.blit(frame_images[frame_index], (0, 0))
-
-    # Update the screen
-    pygame.display.update()
-
-    # Wait for the specified frame time
-    current_time += pygame.time.get_ticks() / 1000
-    if current_time >= frame_time:
-        # Switch to the next frame
-        frame_index = (frame_index + 1) % frame_count
-        current_time = 0
-
-# Quit Pygame
+# Clean up
 pygame.quit()
