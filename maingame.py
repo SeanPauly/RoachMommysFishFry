@@ -1,19 +1,21 @@
 import os
 import random
+import sys
 import pygame
+
 
 # Define colors
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
-
+GRAY = (155, 155, 155)
 # Initialize Pygame
 pygame.init()
 pygame.mixer.init()
 
 
 # Load the audio file
-lose_sound = pygame.mixer.Sound('sounds/lose.mp3')
-game_sound = pygame.mixer.Sound('sounds/game.mp3')
+lose_sound = pygame.mixer.Sound('Music/You Failed!!!.mp3')
+game_sound = pygame.mixer.Sound('Music/LET THEM EAT FISH!.mp3')
 correct = pygame.mixer.Sound('SE\Correct.mp3')
 lever = pygame.mixer.Sound('SE\Lever.mp3')
 rope = pygame.mixer.Sound('SE\Rope.mp3')
@@ -25,7 +27,7 @@ SCREEN_HEIGHT = 600
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 # Set font for text
-font = pygame.font.Font(None, 50)
+font = pygame.font.Font(None, 25)
 
 
 # Define the possible words for the game
@@ -78,6 +80,8 @@ difficulty_index = 0
 
 cr_image = pygame.image.load('Images/CreditsScreen.png')
 cr_image = pygame.transform.scale(cr_image, (SCREEN_WIDTH-100, SCREEN_HEIGHT-100))
+co_image = pygame.image.load('Images/Congratulations.png')
+co_image = pygame.transform.scale(co_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
 ru_image = pygame.image.load('Images/RulesScreen.png')
 ru_image = pygame.transform.scale(ru_image, (SCREEN_WIDTH-100, SCREEN_HEIGHT-100))
 bg_image = pygame.image.load('Images/RMFFTitleCard.png')
@@ -89,9 +93,9 @@ go_image = pygame.transform.scale(go_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
 wi_image = pygame.image.load('Images/WinScreen.png')
 wi_image = pygame.transform.scale(wi_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
+
+
 # Set up splash screen
-splash_screen_text = font.render("Welcome to My Game", True, WHITE)
-splash_screen_text_rect = splash_screen_text.get_rect(center=(SCREEN_WIDTH//2, SCREEN_HEIGHT//2))
 
 rm_width = 200
 rm_height = 125
@@ -104,6 +108,115 @@ fish_height = 500
 
 button_width = 150
 button_height = 50
+
+
+loading_frame_0 = pygame.image.load('Images\Loading_Frames\Frame_0_delay-0.1s.gif')
+loading_frame_0 = pygame.transform.scale(loading_frame_0, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_1 = pygame.image.load('Images\Loading_Frames\Frame_1_delay-0.1s.gif')
+loading_frame_1 = pygame.transform.scale(loading_frame_1, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_2 = pygame.image.load('Images\Loading_Frames\Frame_2_delay-0.1s.gif')
+loading_frame_2 = pygame.transform.scale(loading_frame_2, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_3 = pygame.image.load('Images\Loading_Frames\Frame_3_delay-0.1s.gif')
+loading_frame_3 = pygame.transform.scale(loading_frame_3, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_4 = pygame.image.load('Images\Loading_Frames\Frame_4_delay-0.1s.gif')
+loading_frame_4 = pygame.transform.scale(loading_frame_4, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_5 = pygame.image.load('Images\Loading_Frames\Frame_5_delay-0.1s.gif')
+loading_frame_5 = pygame.transform.scale(loading_frame_5, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_6 = pygame.image.load('Images\Loading_Frames\Frame_6_delay-0.1s.gif')
+loading_frame_6 = pygame.transform.scale(loading_frame_6, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_7 = pygame.image.load('Images\Loading_Frames\Frame_7_delay-0.1s.gif')
+loading_frame_7 = pygame.transform.scale(loading_frame_7, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_8 = pygame.image.load('Images\Loading_Frames\Frame_8_delay-0.1s.gif')
+loading_frame_8 = pygame.transform.scale(loading_frame_8, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_9 = pygame.image.load('Images\Loading_Frames\Frame_9_delay-0.1s.gif')
+loading_frame_9 = pygame.transform.scale(loading_frame_9, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_10 = pygame.image.load('Images\Loading_Frames\Frame_10_delay-0.1s.gif')
+loading_frame_10 = pygame.transform.scale(loading_frame_10, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_11 = pygame.image.load('Images\Loading_Frames\Frame_11_delay-0.1s.gif')
+loading_frame_11 = pygame.transform.scale(loading_frame_11, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_12 = pygame.image.load('Images\Loading_Frames\Frame_12_delay-0.1s.gif')
+loading_frame_12 = pygame.transform.scale(loading_frame_12, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_13 = pygame.image.load('Images\Loading_Frames\Frame_13_delay-0.1s.gif')
+loading_frame_13 = pygame.transform.scale(loading_frame_13, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_14 = pygame.image.load('Images\Loading_Frames\Frame_14_delay-0.1s.gif')
+loading_frame_14 = pygame.transform.scale(loading_frame_14, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+loading_frame_15 = pygame.image.load('Images\Loading_Frames\Frame_15_delay-0.1s.gif')
+loading_frame_15 = pygame.transform.scale(loading_frame_15, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_0 = pygame.image.load('Images\Fade_Frames\Frame_00_delay-0.1s.gif')
+fade_frame_0 = pygame.transform.scale(fade_frame_0, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_1 = pygame.image.load('Images\Fade_Frames\Frame_01_delay-0.1s.gif')
+fade_frame_1 = pygame.transform.scale(fade_frame_1, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_2 = pygame.image.load('Images\Fade_Frames\Frame_02_delay-0.1s.gif')
+fade_frame_2 = pygame.transform.scale(fade_frame_2, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_3 = pygame.image.load('Images\Fade_Frames\Frame_03_delay-0.1s.gif')
+fade_frame_3 = pygame.transform.scale(fade_frame_3, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_4 = pygame.image.load('Images\Fade_Frames\Frame_04_delay-0.1s.gif')
+fade_frame_4 = pygame.transform.scale(fade_frame_4, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_5 = pygame.image.load('Images\Fade_Frames\Frame_05_delay-0.1s.gif')
+fade_frame_5 = pygame.transform.scale(fade_frame_5, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_6 = pygame.image.load('Images\Fade_Frames\Frame_06_delay-0.1s.gif')
+fade_frame_6 = pygame.transform.scale(fade_frame_6, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_7 = pygame.image.load('Images\Fade_Frames\Frame_07_delay-0.1s.gif')
+fade_frame_7 = pygame.transform.scale(fade_frame_7, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_8 = pygame.image.load('Images\Fade_Frames\Frame_08_delay-0.1s.gif')
+fade_frame_8 = pygame.transform.scale(fade_frame_8, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_9 = pygame.image.load('Images\Fade_Frames\Frame_09_delay-0.1s.gif')
+fade_frame_9 = pygame.transform.scale(fade_frame_9, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_10 = pygame.image.load('Images\Fade_Frames\Frame_10_delay-0.1s.gif')
+fade_frame_10 = pygame.transform.scale(fade_frame_10, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_11 = pygame.image.load('Images\Fade_Frames\Frame_11_delay-0.1s.gif')
+fade_frame_11 = pygame.transform.scale(fade_frame_11, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_12 = pygame.image.load('Images\Fade_Frames\Frame_12_delay-0.1s.gif')
+fade_frame_12 = pygame.transform.scale(fade_frame_12, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_13 = pygame.image.load('Images\Fade_Frames\Frame_13_delay-0.1s.gif')
+fade_frame_13 = pygame.transform.scale(fade_frame_13, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_14 = pygame.image.load('Images\Fade_Frames\Frame_14_delay-0.1s.gif')
+fade_frame_14 = pygame.transform.scale(fade_frame_14, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_15 = pygame.image.load('Images\Fade_Frames\Frame_15_delay-0.1s.gif')
+fade_frame_15 = pygame.transform.scale(fade_frame_15, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_16 = pygame.image.load('Images\Fade_Frames\Frame_16_delay-0.1s.gif')
+fade_frame_16 = pygame.transform.scale(fade_frame_16, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_17 = pygame.image.load('Images\Fade_Frames\Frame_17_delay-0.1s.gif')
+fade_frame_17 = pygame.transform.scale(fade_frame_17, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_18 = pygame.image.load('Images\Fade_Frames\Frame_18_delay-0.1s.gif')
+fade_frame_18 = pygame.transform.scale(fade_frame_18, (SCREEN_WIDTH, SCREEN_HEIGHT))
+
+fade_frame_19 = pygame.image.load('Images\Fade_Frames\Frame_19_delay-0.1s.gif')
+fade_frame_19 = pygame.transform.scale(fade_frame_19, (SCREEN_WIDTH, SCREEN_HEIGHT))
 
 rm_frame_0 = pygame.image.load('Images\RoachMommy_Frames\Frame_0_delay-0.1s.png')
 rm_frame_0 = pygame.transform.scale(rm_frame_0, (rm_width, rm_height))
@@ -201,8 +314,39 @@ fish_frame_14 = pygame.transform.scale(fish_frame_14, (fish_width, fish_height))
 fish_frame_15 = pygame.image.load('Images\Fish_Frames\Frame_15_delay-0.1s.gif')
 fish_frame_15 = pygame.transform.scale(fish_frame_15, (fish_width, fish_height))
 
-guess_width = SCREEN_WIDTH-10
-guess_height = 250
+fox_width = 200
+fox_height = 125
+
+fox_frame_0 = pygame.image.load('Images\Fox_Frames\Frame_0_delay-0.1s.png')
+fox_frame_0 = pygame.transform.scale(fox_frame_0, (fox_width, fox_height))
+
+fox_frame_1 = pygame.image.load('Images\Fox_Frames\Frame_1_delay-0.1s.png')
+fox_frame_1 = pygame.transform.scale(fox_frame_1, (fox_width, fox_height))
+
+fox_frame_2 = pygame.image.load('Images\Fox_Frames\Frame_2_delay-0.1s.png')
+fox_frame_2 = pygame.transform.scale(fox_frame_2, (fox_width, fox_height))
+
+fox_frame_3 = pygame.image.load('Images\Fox_Frames\Frame_3_delay-0.1s.png') 
+fox_frame_3 = pygame.transform.scale(fox_frame_3, (fox_width, fox_height))
+
+fox_frame_4 = pygame.image.load('Images\Fox_Frames\Frame_4_delay-0.1s.png')
+fox_frame_4 = pygame.transform.scale(fox_frame_4, (fox_width, fox_height))
+
+fox_frame_5 = pygame.image.load('Images\Fox_Frames\Frame_5_delay-0.1s.png')
+fox_frame_5 = pygame.transform.scale(fox_frame_5, (fox_width, fox_height))
+
+fox_frame_6 = pygame.image.load('Images\Fox_Frames\Frame_6_delay-0.1s.png')
+fox_frame_6 = pygame.transform.scale(fox_frame_6, (fox_width, fox_height))
+
+fox_frame_7 = pygame.image.load('Images\Fox_Frames\Frame_7_delay-0.1s.png')
+fox_frame_7 = pygame.transform.scale(fox_frame_7, (fox_width, fox_height))
+
+fox_frame_8 = pygame.image.load('Images\Fox_Frames\Frame_8_delay-0.1s.png')
+fox_frame_8 = pygame.transform.scale(fox_frame_8, (fox_width, fox_height))
+
+
+guess_width = SCREEN_WIDTH/2
+guess_height = 225
 
 # Set up menu screen
 play_button_img = pygame.image.load("Images\ButtonFrames\PlayButton\playbuttonframe_0.png")
@@ -243,12 +387,19 @@ game_screen_text_rect = game_screen_text.get_rect(center=(SCREEN_WIDTH//2, SCREE
 
 # Set initial screen to splash screen
 global current_screen
-current_screen = "menu"
+current_screen = "splash"
 
 clock = pygame.time.Clock()
 
 
-# Define the function to play the game
+loading_frame_images = [loading_frame_0, loading_frame_1, loading_frame_3, loading_frame_4, loading_frame_5, loading_frame_6, loading_frame_7, loading_frame_8, loading_frame_9, loading_frame_10, loading_frame_11, loading_frame_12, loading_frame_13, loading_frame_14, loading_frame_15, loading_frame_14]
+loading_frame_rate = 7
+loading_frame_index = 0
+
+fade_frame_images = [fade_frame_0, fade_frame_1, fade_frame_2, fade_frame_3, fade_frame_4, fade_frame_5, fade_frame_6, fade_frame_7, fade_frame_8, fade_frame_9, fade_frame_10, fade_frame_11, fade_frame_12, fade_frame_13, fade_frame_14, fade_frame_15, fade_frame_16, fade_frame_17, fade_frame_18, fade_frame_19]
+fade_frame_rate = 8
+fade_frame_index = 0
+
 def play_game():
     # Initialize game variables
     num_wins = 0
@@ -256,6 +407,9 @@ def play_game():
     max_num_games = 3
     attempts = 6
     screen.blit(ga_image, (0, 0))
+    # Initialize the text surface list
+    am_text_surface = [FONT.render(letter, True, WHITE) for letter in "abcdefghijklmn"]
+    nz_text_surface = [FONT.render(letter, True, WHITE) for letter in "opqrstuvwxyz"]
 
     # Main game loop
     while num_wins < max_num_games: 
@@ -286,27 +440,47 @@ def play_game():
         # Set up the animation variables
         fish_frame_index = 0
 
+        fox_frame_images = [fox_frame_0, fox_frame_1, fox_frame_3, fox_frame_4, fox_frame_5, fox_frame_6, fox_frame_7, fox_frame_8]
+        fox_frame_rate = 16
+        fox_frame_index = 0
+
+
+
+        letters_guessed = []
+        fish_height = -350  # initial height of the fish_frame_image
+
         # Loop until the player wins or runs out of attempts
         while attempts > 0 and "_" in hidden_word:
             # Clear the screen and display the background
             screen.blit(ga_image, (0, 0))
-
+#            letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+            
             # Display the word and the number of attempts
             word_text = FONT.render(" ".join(hidden_word), True, WHITE)
             attempts_text = FONT.render("Attempts: " + str(attempts), True, WHITE)
-            screen.blit(gu_image, [0, 350])
-            screen.blit(word_text, [115, 145]) 
-            screen.blit(attempts_text, [100, 115])
+
+            screen.blit(gu_image, [400, 350])
+            screen.blit(word_text, [350+(guess_width//2), 425]) 
+            screen.blit(attempts_text, [565, 405])
             screen.blit(boil_frame_images[boil_frame_index], (150, 185))
+            screen.blit(fox_frame_images[fox_frame_index], (50, 110))
             screen.blit(rm_frame_images[rm_frame_index], (550, 110))
-            screen.blit(fish_frame_images[fish_frame_index], (300, -350))
+            screen.blit(fish_frame_images[fish_frame_index], (300, fish_height))
             rm_frame_index = (rm_frame_index + 1) % len(rm_frame_images)
+            fox_frame_index = (fox_frame_index + 1) % len(fox_frame_images)
             boil_frame_index = (boil_frame_index + 1) % len(boil_frame_images)
             fish_frame_index = (fish_frame_index + 1) % len(fish_frame_images)
             # Wait for the next frame
             clock.tick(rm_frame_rate)
             clock.tick(boil_frame_rate)
             clock.tick(fish_frame_rate)
+            clock.tick(fox_frame_rate)
+
+            for i, letter in enumerate(am_text_surface):
+                screen.blit(letter, [450+i*26, 465])
+            
+            for i, letter in enumerate(nz_text_surface):
+                screen.blit(letter, [465+i*26, 495])
 
             # Handle events
             for event in pygame.event.get():
@@ -315,9 +489,13 @@ def play_game():
                     quit()
                 if event.type == pygame.KEYDOWN:
                     if event.unicode.isalpha():
-                        # Convert the letter to uppercase
+                        # Convert the letter to lowercase
                         letter = event.unicode.lower()
-                        # Check if the letter is in the word
+                        letters_guessed.append(letter)
+                        if letter in letters_guessed:
+                            color = GRAY
+                        else:
+                            color = WHITE               
                         if letter in word:
                             correct.play()
                             # Replace the underscores with the letter
@@ -326,19 +504,25 @@ def play_game():
                                     hidden_word[i] = letter
                         else:
                             wrong.play()
+                            fish_height += 25 
                             lever.play()
                             # Decrement the number of attempts
                             attempts -= 1
-
+                        
+                        
             # Update the screen
             pygame.display.update()
 
 
         # Check if the player won or lost
         if "_" not in hidden_word:
-            num_wins += 1
-            screen.blit(wi_image, (0, 0))
-            attempts = 6
+            if num_wins != 3:
+                num_wins += 1
+                screen.blit(wi_image, (0, 0))
+                attempts = 6
+                # win_sound.play()
+            elif num_wins == 3:
+                screen.blit(co_image, (0, 0))
             # win_sound.play()
         else:
             screen.blit(go_image, (0, 0))
@@ -404,7 +588,14 @@ while not done:
     # Draw current screen
     screen.fill(BLACK)
     if current_screen == "splash":
-        screen.blit(splash_screen_text, splash_screen_text_rect)
+        screen.blit(loading_frame_images[loading_frame_index], (0, 0))
+        loading_frame_index = (loading_frame_index + 1) % len(loading_frame_images)
+        clock.tick(loading_frame_rate)
+        if loading_frame_index >= len(loading_frame_images) - 1:
+            screen.blit(fade_frame_images[fade_frame_index], (0, 0))
+            loading_frame_index = (fade_frame_index + 1) % len(fade_frame_images)
+            clock.tick(fade_frame_rate)
+            current_screen = "menu"
     elif current_screen == "menu":
         screen.blit(bg_image, (0, 0))
         screen.blit(play_button_img, menu_screen_play_button_rect)
@@ -421,5 +612,4 @@ while not done:
     elif current_screen == "credits":
         screen.blit(cr_image, credits_screen_img_rect)
     pygame.display.flip()
-
 pygame.quit()
