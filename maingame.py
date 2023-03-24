@@ -82,6 +82,8 @@ cr_image = pygame.image.load('Images/CreditsScreen.png')
 cr_image = pygame.transform.scale(cr_image, (SCREEN_WIDTH-100, SCREEN_HEIGHT-100))
 co_image = pygame.image.load('Images/Congratulations.png')
 co_image = pygame.transform.scale(co_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
+lo_image = pygame.image.load('Images/StoryScreen.png')
+lo_image = pygame.transform.scale(lo_image, (SCREEN_WIDTH-100, SCREEN_HEIGHT-100))
 ru_image = pygame.image.load('Images/RulesScreen.png')
 ru_image = pygame.transform.scale(ru_image, (SCREEN_WIDTH-100, SCREEN_HEIGHT-100))
 bg_image = pygame.image.load('Images/RMFFTitleCard.png')
@@ -92,7 +94,6 @@ go_image = pygame.image.load('Images/GameOver.png')
 go_image = pygame.transform.scale(go_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
 wi_image = pygame.image.load('Images/WinScreen.png')
 wi_image = pygame.transform.scale(wi_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
-
 
 
 # Set up splash screen
@@ -444,10 +445,10 @@ def play_game():
         fox_frame_rate = 16
         fox_frame_index = 0
 
-
+        
 
         letters_guessed = []
-        fish_height = -350  # initial height of the fish_frame_image
+        fish_height = -350  # itial height of the fish_frame_image
 
         # Loop until the player wins or runs out of attempts
         while attempts > 0 and "_" in hidden_word:
@@ -548,6 +549,9 @@ def play_game():
 
 
 
+wait_frame_seconds = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+wait_frame_rate = 1
+wait_frame_index = 0
  
 
 done = False
@@ -592,10 +596,13 @@ while not done:
         loading_frame_index = (loading_frame_index + 1) % len(loading_frame_images)
         clock.tick(loading_frame_rate)
         if loading_frame_index >= len(loading_frame_images) - 1:
-            screen.blit(fade_frame_images[fade_frame_index], (0, 0))
-            loading_frame_index = (fade_frame_index + 1) % len(fade_frame_images)
-            clock.tick(fade_frame_rate)
-            current_screen = "menu"
+            current_screen = "story"
+    elif current_screen == "story":
+        screen.blit(lo_image, (50, 50))
+        wait_frame_index = (wait_frame_index + 1) % len(wait_frame_seconds)
+        clock.tick(wait_frame_rate)           
+        if wait_frame_index >= len(wait_frame_seconds) - 1:
+            current_screen = "menu" 
     elif current_screen == "menu":
         screen.blit(bg_image, (0, 0))
         screen.blit(play_button_img, menu_screen_play_button_rect)
